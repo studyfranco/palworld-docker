@@ -31,9 +31,10 @@ For people who want use the image you can use [docker compose](https://docs.dock
 ```yaml
 version: "3.7"
 services:
-  frozen_flame:
+  palworld:
     container_name: palworld-server
-    image: ghcr.io/studyfranco/palworld-docker:main
+    hostname: palworld-server
+    image: ghcr.io/studyfranco/palworld-docker:master
     #network_mode: "host"
     volumes:
       - "/path/to/config:/config"
@@ -56,9 +57,12 @@ services:
       - "PUID=2198"
       - "PGID=2198"
       - "TZ=Etc/UTC"
-    #tmpfs:
-    #  - "/run:exec,mode=777"
-    #  - "/tmp:exec,mode=777"
+    tmpfs:
+      - "/run:exec,mode=777"
+      - "/tmp:exec,mode=777"
+      - "/tmp/dumps:exec,mode=777"
+      - "/var/tmp:exec,mode=777"
+      - "/config/gamefiles/steamapps/temp:uid=2198,gid=2198"
     restart: "unless-stopped"
 ```
 You can use the safer way with ports forwarding, or the network mod host.

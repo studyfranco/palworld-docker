@@ -68,5 +68,4 @@ set_ini_prop "Game.ini" "\/Script\/FrozenFlame\.GameBalance" "DurationOfDay" "${
 
 cd /config/gamefiles || exit 1
 
-#exec ./PalServer.sh -log -MetaGameServerName="${SERVER_NAME}" -RconPassword="${RCON_PASSWORD}" -RconPort="${RCON_PORT}" -Port="${SERVER_PORT}" -queryPort="${SERVER_QUERY_PORT}" -useperfthreads -NoAsyncLoadingThread -UseMultithreadForDS
-bash
+exec ./PalServer.sh -log -MetaGameServerName="${SERVER_NAME}" -RconPassword="${RCON_PASSWORD}" -RconPort="${RCON_PORT}" -Port="${SERVER_PORT}" -queryPort="${SERVER_QUERY_PORT}" -useperfthreads -NoAsyncLoadingThread -UseMultithreadForDS

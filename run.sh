@@ -24,8 +24,8 @@ if ! [[ "${SKIPUPDATE,,}" == "true" ]]; then
     space=$((space/1024/1024/1024))
     printf "Checking available space...%sGB detected\\n" "${space}"
 
-    if [[ "$space" -lt 5 ]]; then
-        printf "You have less than 5GB (%sGB detected) of available space to download the game.\\nIf this is a fresh install, it will probably fail.\\n" "${space}"
+    if [[ "$space" -lt 8 ]]; then
+        printf "You have less than 8GB (%sGB detected) of available space to download the game.\\nIf this is a fresh install, it will probably fail.\\n" "${space}"
     fi
 
     printf "Downloading the latest version of the game...\\n"

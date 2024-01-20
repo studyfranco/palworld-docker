@@ -38,6 +38,7 @@ fi
 if [ ! -f "${GAMECONFIGDIR}/Game.ini" ]; then
     #mkdir -p "${GAMECONFIGDIR}"
     #wget -P "${GAMECONFIGDIR}" "${GAMECONFIGLINK}"
+    echo "test"
 fi
 
 # cp /home/steam/*.ini "${GAMECONFIGDIR}"

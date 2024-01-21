@@ -36,21 +36,20 @@ else
 fi
 
 if [ ! -f "${GAMECONFIGDIR}/Game.ini" ]; then
-    #mkdir -p "${GAMECONFIGDIR}"
+    mkdir -p "${GAMECONFIGDIR}"
     #wget -P "${GAMECONFIGDIR}" "${GAMECONFIGLINK}"
     echo "test"
 fi
 
 # cp /home/steam/*.ini "${GAMECONFIGDIR}"
 if [ ! -L "${GAMESAVESDIR}" ]; then
-    mkdir -p "${GAMESAVESDIR}"
     ln -sf "/config/saves" "${GAMESAVESDIR}"
 fi
 
 ## START [/Script/Engine.GameSession]
 if ! [[ "$MAXPLAYERS" =~ $NUMCHECK ]] ; then
     printf "Invalid max players number given: %s\\n" "${MAXPLAYERS}"
-    MAXPLAYERS=10
+    MAXPLAYERS=32
 fi
 #set_ini_prop "Game.ini" "\/Script\/Engine\.GameSession" "MaxPlayers" "${MAXPLAYERS}"
 ## END

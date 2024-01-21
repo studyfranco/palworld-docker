@@ -24,6 +24,7 @@ ENV SERVER_NAME="PalworldServerByMe" \
     RCON_PASSWORD="password" \
     STEAMAPPID=2394010 \
     MAXPLAYERS=32 \
+    MAXPLAYERSCOOP=32 \
     SERVERPASSWORD="password" \
     DAYDURATION=3600 \
     PUID=1000 \

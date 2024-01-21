@@ -35,10 +35,9 @@ else
     printf "Skipping update as flag is set\\n"
 fi
 
-if [ ! -f "${GAMECONFIGDIR}/Game.ini" ]; then
+if [ ! -f "${GAMECONFIGDIR}/PalWorldSettings.ini" ]; then
     mkdir -p "${GAMECONFIGDIR}"
-    #wget -P "${GAMECONFIGDIR}" "${GAMECONFIGLINK}"
-    echo "test"
+    cp "/config/gamefiles/DefaultPalWorldSettings.ini" "${GAMECONFIGDIR}/PalWorldSettings.ini"
 fi
 
 # cp /home/steam/*.ini "${GAMECONFIGDIR}"
@@ -51,11 +50,11 @@ if ! [[ "$MAXPLAYERS" =~ $NUMCHECK ]] ; then
     printf "Invalid max players number given: %s\\n" "${MAXPLAYERS}"
     MAXPLAYERS=32
 fi
-#set_ini_prop "Game.ini" "\/Script\/Engine\.GameSession" "MaxPlayers" "${MAXPLAYERS}"
+#set_ini_prop "PalWorldSettings.ini" "\/Script\/Engine\.GameSession" "MaxPlayers" "${MAXPLAYERS}"
 ## END
 
 ## START [/Script/FrozenFlame.FGameSession]
-#set_ini_prop "Game.ini" "\/Script\/FrozenFlame\.FGameSession" "ServerPassword" "\"${SERVERPASSWORD}\""
+#set_ini_prop "PalWorldSettings.ini" "\/Script\/FrozenFlame\.FGameSession" "ServerPassword" "\"${SERVERPASSWORD}\""
 ## END
 
 ## START [/Script/FrozenFlame.GameBalance]
@@ -63,7 +62,7 @@ if ! [[ "$DAYDURATION" =~ $NUMCHECK ]] ; then
     printf "Invalid day duration number given: %s\\n" "${DAYDURATION}"
     DAYDURATION=3600
 fi
-#set_ini_prop "Game.ini" "\/Script\/FrozenFlame\.GameBalance" "DurationOfDay" "${DAYDURATION};"
+#set_ini_prop "PalWorldSettings.ini" "\/Script\/FrozenFlame\.GameBalance" "DurationOfDay" "${DAYDURATION};"
 ## END
 
 cd /config/gamefiles || exit 1

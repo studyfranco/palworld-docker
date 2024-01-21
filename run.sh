@@ -43,6 +43,7 @@ fi
 
 # cp /home/steam/*.ini "${GAMECONFIGDIR}"
 if [ ! -L "${GAMESAVESDIR}" ]; then
+    mkdir -p "${GAMESAVESDIR}"
     ln -sf "/config/saves" "${GAMESAVESDIR}"
 fi
 
@@ -51,11 +52,11 @@ if ! [[ "$MAXPLAYERS" =~ $NUMCHECK ]] ; then
     printf "Invalid max players number given: %s\\n" "${MAXPLAYERS}"
     MAXPLAYERS=10
 fi
-set_ini_prop "Game.ini" "\/Script\/Engine\.GameSession" "MaxPlayers" "${MAXPLAYERS}"
+#set_ini_prop "Game.ini" "\/Script\/Engine\.GameSession" "MaxPlayers" "${MAXPLAYERS}"
 ## END
 
 ## START [/Script/FrozenFlame.FGameSession]
-set_ini_prop "Game.ini" "\/Script\/FrozenFlame\.FGameSession" "ServerPassword" "\"${SERVERPASSWORD}\""
+#set_ini_prop "Game.ini" "\/Script\/FrozenFlame\.FGameSession" "ServerPassword" "\"${SERVERPASSWORD}\""
 ## END
 
 ## START [/Script/FrozenFlame.GameBalance]
@@ -63,7 +64,7 @@ if ! [[ "$DAYDURATION" =~ $NUMCHECK ]] ; then
     printf "Invalid day duration number given: %s\\n" "${DAYDURATION}"
     DAYDURATION=3600
 fi
-set_ini_prop "Game.ini" "\/Script\/FrozenFlame\.GameBalance" "DurationOfDay" "${DAYDURATION};"
+#set_ini_prop "Game.ini" "\/Script\/FrozenFlame\.GameBalance" "DurationOfDay" "${DAYDURATION};"
 ## END
 
 cd /config/gamefiles || exit 1

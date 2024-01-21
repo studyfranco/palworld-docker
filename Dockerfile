@@ -28,8 +28,8 @@ ENV SERVER_NAME="PalworldServerByMe" \
     DAYDURATION=3600 \
     PUID=1000 \
     PGID=1000 \
-    GAMECONFIGDIR="/config/gamefiles/Palworld/Saved/Config/LinuxServer" \
-    GAMESAVESDIR="/config/gamefiles/Palworld/Saved/SaveGames" \
+    GAMECONFIGDIR="/config/gamefiles/Pal/Saved/Config/LinuxServer" \
+    GAMESAVESDIR="/config/gamefiles/Pal/Saved/SaveGames" \
     SKIPUPDATE="false"
 
 

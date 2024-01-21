@@ -43,9 +43,9 @@ fi
 
 if [ ! -f "${GAMECONFIGDIR}/PalWorldSettings.ini" ]; then
     cp "/config/gamefiles/DefaultPalWorldSettings.ini" "/config/gameconfigs/PalWorldSettings.ini"
-    sed -i "s/AdminPassword=\".*\",/AdminPassword=\"${SERVERADMINPASSWORD}\",/" "/config/gameconfigs/PalWorldSettings.ini"
-    sed -i "s/ServerPassword=\".*\",/ServerPassword=\"${SERVERPASSWORD}\",/" "/config/gameconfigs/PalWorldSettings.ini"
-    sed -i "s/ServerName=\".*\",/ServerName=\"${SERVER_NAME}\",/" "/config/gameconfigs/PalWorldSettings.ini"
+    sed -i "s/AdminPassword=\"[^\"]*\"/AdminPassword=\"${SERVERADMINPASSWORD}\"/" "/config/gameconfigs/PalWorldSettings.ini"
+    sed -i "s/ServerPassword=\"[^\"]*\"/ServerPassword=\"${SERVERPASSWORD}\"/" "/config/gameconfigs/PalWorldSettings.ini"
+    sed -i "s/ServerName=\"[^\"]*\"/ServerName=\"${SERVER_NAME}\"/" "/config/gameconfigs/PalWorldSettings.ini"
 fi
 
 if [ ! -L "${GAMESAVESDIR}" ]; then

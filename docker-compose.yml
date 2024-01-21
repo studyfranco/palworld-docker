@@ -8,22 +8,18 @@ services:
     volumes:
       - "/path/to/config:/config"
     ports:
-      - 7779:7779
-      - 7780:7780/udp
+      - 8211:8211/udp
       - 27017:27017/udp
     expose:
-      - 7779
-      - 7780/udp
+      - 8211/udp
       - 27017/udp
     environment:
       - "SERVER_NAME=PalworldServerByMe"
-      - "SERVER_QUERY_PORT=7780"
-      - "SERVER_PORT=7779"
+      - "SERVER_PORT=8211"
       - "RCON_PORT=27017"
       - "RCON_PASSWORD=password"
-      - "MAXPLAYERS=10"
+      - "MAXPLAYERS=32"
       - "SERVERPASSWORD=password"
-      - "DAYDURATION=3600" #How long a day lasts
       - "PUID=2198"
       - "PGID=2198"
       - "TZ=Etc/UTC"

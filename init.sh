@@ -37,7 +37,7 @@ if [[ "$ramAvailable" -lt 2 ]]; then
     printf "You have less than the required 2GB minmum (%sGB detected) of available RAM to run the game server.\\nIt is likely that the server will fail to load properly.\\n" "${ramAvailable}"
 fi
 
-mkdir -p /config/backups /config/gamefiles /config/saves || exit 1
+mkdir -p /config/backups /config/gamefiles /config/saves /config/gameconfigs || exit 1
 
 NUMCHECK='^[0-9]+$'
 

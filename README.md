@@ -39,20 +39,17 @@ services:
     volumes:
       - "/path/to/config:/config"
     ports:
-      - 7779:7779
-      - 7780:7780/udp
+      - 8211:8211/udp
       - 27017:27017/udp
     expose:
-      - 7779
-      - 7780/udp
+      - 8211/udp
       - 27017/udp
     environment:
       - "SERVER_NAME=PalworldServerByMe"
-      - "SERVER_QUERY_PORT=7780"
-      - "SERVER_PORT=7779"
+      - "SERVER_PORT=8211"
       - "RCON_PORT=27017"
       - "RCON_PASSWORD=password"
-      - "MAXPLAYERS=10"
+      - "MAXPLAYERS=32"
       - "SERVERPASSWORD=password"
       - "PUID=2198"
       - "PGID=2198"
@@ -78,11 +75,22 @@ This is currently using the host network simplicity but you should be able to ma
 | Parameter               |  Default  | Function                                            |
 | ----------------------- | :-------: | --------------------------------------------------- |
 | `SERVER_NAME` | `PalworldServerByMe` | set the name of the server in Frozen Flame          |
-| `SERVER_PORT`           |   `7779`  | Sets custom Game port. This is used by client to connect |
-| `SERVER_QUERY_PORT`     |   `7780`  | Sets custom Query Port. Used by Steam to get server info |
+| `SERVER_PORT`           |   `8211`  | Sets custom Game port. This is used by client to connect |
 | `SERVERPASSWORD`        | `password`| Set server password                                 |
+| `SERVERADMINPASSWORD`   | `password`| Set server Admin password                           |
 | `RCON_PORT`             |   `27017` | Set Rcon port                                       |
 | `RCON_PASSWORD`         | `password`| Set Rcon password                                   |
-| `MAXPLAYERS`            |    `10`   | set the player limit for your server                |
+| `MAXPLAYERS`            |    `32`   | set the player limit for your server                |
 | `PGID`                  |   `2198`  | set the group ID of the user the server will run as |
 | `PUID`                  |   `2198`  | set the user ID of the user the server will run as  |
+
+## Features in this docker
+
+ - Backup at each start
+ - Automatic edition of basic server game configs
+
+I am open to improve some features
+
+## Improve your experiences
+
+You can edit the /config/gameconfigs/PalWorldSettings.ini to choose somes other options.

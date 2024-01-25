@@ -9,9 +9,11 @@ services:
       - "/path/to/config:/config"
     ports:
       - 8211:8211/udp
+      - 27015:27015/udp
       - 27017:27017/udp
     expose:
       - 8211/udp
+      - 27015/udp
       - 27017/udp
     environment:
       - "SERVER_NAME=PalworldServerByMe"

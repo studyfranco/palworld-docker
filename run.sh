@@ -80,4 +80,4 @@ sed -i "s/GuildPlayerMaxNum=[0-9]*/GuildPlayerMaxNum=${MAXPLAYERSGUILD}/" "/conf
 
 cd /config/gamefiles || exit 1
 
-exec ./PalServer.sh -log -ServerName="${SERVER_NAME}" -RconPassword="${RCON_PASSWORD}" -RconPort=${RCON_PORT} -PublicPort=${SERVER_PORT} -useperfthreads -NoAsyncLoadingThread -UseMultithreadForDS
+exec ./PalServer.sh -log -ServerName="${SERVER_NAME}" -useperfthreads -NoAsyncLoadingThread -UseMultithreadForDS #-RconPassword="${RCON_PASSWORD}" -RconPort=${RCON_PORT} -PublicPort=${SERVER_PORT}

@@ -47,7 +47,8 @@ services:
     environment:
       - "SERVER_NAME=PalworldServerByMe"
       - "SERVER_PORT=8211"
-      - "RCON_PORT=27017"
+      - "SERVER_QUERY_PORT=27015"
+      - "RCON_PORT=25575"
       - "RCON_PASSWORD=password"
       - "MAXPLAYERS=32"
       - "MAXPLAYERSCOOP=32"
@@ -79,9 +80,10 @@ This is currently using the host network simplicity but you should be able to ma
 | ----------------------- | :-------: | --------------------------------------------------- |
 | `SERVER_NAME` | `PalworldServerByMe` | set the name of the server in Frozen Flame          |
 | `SERVER_PORT`           |   `8211`  | Sets custom Game port. This is used by client to connect |
+| `SERVER_QUERY_PORT`     |  `27015`  | Sets custom Query Port. Used by Steam to get server info |
 | `SERVERPASSWORD`        | `password`| Set server password                                 |
 | `SERVERADMINPASSWORD`   | `password`| Set server Admin password                           |
-| `RCON_PORT`             |   `27017` | Set Rcon port                                       |
+| `RCON_PORT`             |  `25575`  | Set Rcon port                                       |
 | `RCON_PASSWORD`         | `password`| Set Rcon password                                   |
 | `MAXPLAYERS`            |    `32`   | set the player limit for your server                |
 | `PGID`                  |   `2198`  | set the group ID of the user the server will run as |

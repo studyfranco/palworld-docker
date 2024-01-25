@@ -70,6 +70,11 @@ if ! [[ "$SERVER_PORT" =~ $NUMCHECK ]] ; then
 fi
 sed -i "s/PublicPort=[0-9]*/PublicPort=${SERVER_PORT}/" "/config/gameconfigs/PalWorldSettings.ini"
 
+if ! [[ "$SERVER_QUERY_PORT" =~ $NUMCHECK ]] ; then
+    printf "Invalid max players number given: %s\\n" "${SERVER_QUERY_PORT}"
+    SERVER_QUERY_PORT=27015
+fi
+
 if ! [[ "$MAXPLAYERSGUILD" =~ $NUMCHECK ]] ; then
     printf "Invalid max players number given: %s\\n" "${MAXPLAYERSGUILD}"
     MAXPLAYERSGUILD=32
@@ -80,4 +85,4 @@ sed -i "s/GuildPlayerMaxNum=[0-9]*/GuildPlayerMaxNum=${MAXPLAYERSGUILD}/" "/conf
 
 cd /config/gamefiles || exit 1
 
-exec ./PalServer.sh -log -servername="${SERVER_NAME}" -publicport=${SERVER_PORT} -Port="${SERVER_PORT}" -PublicPort=${SERVER_PORT} -useperfthreads -NoAsyncLoadingThread -UseMultithreadForDS -RconPassword="${RCON_PASSWORD}" -RconPort=${RCON_PORT}
+exec ./PalServer.sh -log -servername="${SERVER_NAME}" -ServerName="${SERVER_NAME}" -publicport=${SERVER_PORT} -Port="${SERVER_PORT}" -queryPort="${SERVER_QUERY_PORT}" -PublicPort=${SERVER_PORT} -RconPassword="${RCON_PASSWORD}" -RconPort=${RCON_PORT} -useperfthreads -NoAsyncLoadingThread -UseMultithreadForDS

@@ -17,6 +17,16 @@ if [ -f "${GAMECONFIGDIR}/PalWorldSettings.ini" ]; then
     tar cf "/config/backups/${launchDate}.tar" "/config/saves" "/config/gameconfigs"
 fi
 
+mkdir -p "${GAMEBASECONFIGDIR}"
+
+if [ ! -L "${GAMECONFIGDIR}" ]; then
+    ln -sf "/config/gameconfigs" "${GAMECONFIGDIR}"
+fi
+
+if [ ! -L "${GAMESAVESDIR}" ]; then
+    ln -sf "/config/saves" "${GAMESAVESDIR}"
+fi
+
 ## Initialise and update files
 if ! [[ "${SKIPUPDATE,,}" == "true" ]]; then
 
@@ -35,21 +45,11 @@ else
     printf "Skipping update as flag is set\\n"
 fi
 
-mkdir -p "${GAMEBASECONFIGDIR}"
-
-if [ ! -L "${GAMECONFIGDIR}" ]; then
-    ln -sf "/config/gameconfigs" "${GAMECONFIGDIR}"
-fi
-
 if [ ! -f "${GAMECONFIGDIR}/PalWorldSettings.ini" ]; then
     cp "/config/gamefiles/DefaultPalWorldSettings.ini" "/config/gameconfigs/PalWorldSettings.ini"
     sed -i "s/AdminPassword=\"[^\"]*\"/AdminPassword=\"${SERVERADMINPASSWORD}\"/" "/config/gameconfigs/PalWorldSettings.ini"
     sed -i "s/ServerPassword=\"[^\"]*\"/ServerPassword=\"${SERVERPASSWORD}\"/" "/config/gameconfigs/PalWorldSettings.ini"
     sed -i "s/ServerName=\"[^\"]*\"/ServerName=\"${SERVER_NAME}\"/" "/config/gameconfigs/PalWorldSettings.ini"
-fi
-
-if [ ! -L "${GAMESAVESDIR}" ]; then
-    ln -sf "/config/saves" "${GAMESAVESDIR}"
 fi
 
 if ! [[ "$MAXPLAYERS" =~ $NUMCHECK ]] ; then

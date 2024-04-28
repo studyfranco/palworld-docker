@@ -1,5 +1,5 @@
 #!/bin/bash
-
+ 
 set -e
 
 if [[ "$DEBUG" == "true" ]]; then

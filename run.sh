@@ -14,7 +14,7 @@ NUMCHECK='^[0-9]+$'
 launchDate=`date +"%Y_%m_%d_%H_%M_%s"`
 
 if [ -f "${GAMECONFIGDIR}/PalWorldSettings.ini" ]; then
-    tar cf "/config/backups/${launchDate}.tar" "/config/saves" "/config/gameconfigs"
+    tar cf - "/config/saves" "/config/gameconfigs" | pigz -9 -p 12 - > "/config/backups/${launchDate}.tar"
 fi
 
 mkdir -p "${GAMEBASECONFIGDIR}"

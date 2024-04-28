@@ -4,7 +4,7 @@ LABEL maintainer="studyfranco@hotmail.fr"
 
 RUN set -x \
     && apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y gosu --no-install-recommends\
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y gosu pigz --no-install-recommends\
     && rm -rf /var/lib/apt/lists/*  \
     && rm -rf /var/log/* \
     && gosu nobody true

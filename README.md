@@ -99,3 +99,6 @@ I am open to improve some features
 ## Improve your experiences
 
 You can edit the /config/gameconfigs/PalWorldSettings.ini to choose somes other options.
+
+## Last Update
+2025-12-20

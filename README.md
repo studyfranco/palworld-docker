@@ -101,4 +101,4 @@ I am open to improve some features
 You can edit the /config/gameconfigs/PalWorldSettings.ini to choose somes other options.
 
 ## Last Update
-2026-03-15
+2026-04-15
